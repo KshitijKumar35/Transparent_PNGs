@@ -1,0 +1,1210 @@
+/* Custom Properties for easy color change */
+:root {
+    --primary-color: #007bff; /* Premium Blue */
+    --secondary-color: #1a1a1a; /* Dark Background */
+    --text-color: #f0f0f0;
+    --card-bg: #282828;
+    --hover-bg: #3c3c3c;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* --- Header & Navigation --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: rgba(26, 26, 26, 0.95);
+    border-bottom: 3px solid #f7d5d5;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary-color);
+    animation-name: myAnimation;
+    animation-duration: 10s;
+}
+
+@keyframes myAnimation {
+  0%   {color: red;}
+  25%  {color: yellow;}
+  50%  {color: blue;}
+  100% {color: green;}
+}
+
+.logo:hover {
+    /* Lift the element visually */
+    transform: translateY(-3px) scale(1.02); 
+    color: #d4f518;
+}
+
+
+/* Mobile Menu Styling (kk.css) */
+
+/* Hamburger Button को सामान्य रूप से छिपाएँ */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white; /* Header के रंग से मैच करें */
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.mobile-menu-toggle:hover {
+    /* Lift the element visually */
+    transform: translateY(-3px) scale(1.02); 
+    color: #2af518;
+}
+
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+/* --- Hero Section & Search --- */
+.hero-section {
+    padding: 80px 5% 60px;
+    text-align: center;
+    background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.hero-section h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.hero-section h1:hover  {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: #ccc;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+#searchInput {
+    padding: 15px 20px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 1.1em;
+    background-color: #333;
+    color: var(--text-color);
+}
+
+.search-container button {
+    padding: 15px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.search-container button:hover {
+    background-color: #0056b3;
+}
+
+/* --- Image Gallery --- */
+.image-gallery h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+/* 🖼️ मुख्य ग्रिड लेआउट */
+.image-grid {
+    /* अब, डिफ़ॉल्ट रूप से (बड़ी स्क्रीन के लिए) यह 6 कार्ड प्रति पंक्ति दिखाएगा */
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 15px; /* गैप को थोड़ा बढ़ाया गया है ताकि 6 कार्ड बेहतर दिखें */
+    padding: 0 20px; /* पैडिंग को थोड़ा बढ़ाया गया है */
+    /* अधिकतम चौड़ाई जोड़ें ताकि यह बहुत बड़ी स्क्रीन पर बहुत ज़्यादा न फैल जाए */
+    max-width: 1300px; 
+    margin: 0 auto; /* केंद्र में संरेखित करने के लिए */
+}
+
+/* 🧱 इमेज कार्ड स्टाइल */
+.image-card {
+    background-color: #e2d9c1;
+    border: 1px solid #ddd;
+    border-radius: 6px; 
+    padding: 10px; /* पैडिंग को थोड़ा बढ़ाया गया है */
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+    min-width: 100px; 
+}
+
+.image-card:hover {
+    background-color: #52dcee; 
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 20px var(--shadow-color); 
+}
+
+/* 💡 PNG थंबनेल स्टाइल */
+.png-thumbnail {
+    width: 100%; 
+    max-height: 100px; /* इमेज की अधिकतम ऊँचाई को बढ़ाया गया है */
+    object-fit: contain; 
+    margin-bottom: 8px; 
+    /* ट्रांसपेरेंट PNG के लिए चेकरबोर्ड बैकग्राउंड */
+    background-image: linear-gradient(45deg, #ccc 25%, transparent 25%),
+                      linear-gradient(-45deg, #ccc 25%, transparent 25%),
+                      linear-gradient(45deg, transparent 75%, #ccc 75%),
+                      linear-gradient(-45deg, transparent 75%, #ccc 75%);
+    background-size: 12px 12px; 
+    background-position: 0 0, 0 6px, 6px -6px, -6px 0px;
+    border: 1px solid #eee;
+}
+
+/* 📄 टेक्स्ट स्टाइल */
+.image-card h3 {
+    margin: 8px 0 5px; 
+    font-size: 0.9em; 
+    color: #333;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+
+.image-card p {
+    color: #6c757d;
+    font-size: 0.8em; 
+    margin-bottom: 8px;
+}
+
+/* 🖱️ बटन स्टाइल */
+.image-card button {
+    padding: 6px 12px; 
+    margin-top: 5px; 
+    border: none;
+    border-radius: 4px; 
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    font-size: 0.8em; 
+    transition: background-color 0.3s;
+}
+
+.image-card button:hover {
+    background-color: #0056b3;
+}
+
+/* 📱 मीडिया क्वेरीज़ */
+
+/* टैबलेट या थोड़ी छोटी स्क्रीन के लिए (जैसे 768px से 1024px) */
+@media (max-width: 1024px) {
+    .image-grid {
+        /* 4 कार्ड प्रति पंक्ति दिखाएँ */
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+    }
+}
+
+/* मोबाइल के लिए (480px से 768px) */
+@media (max-width: 768px) {
+    .image-grid {
+        /* 3 कार्ड प्रति पंक्ति दिखाएँ */
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    .image-card h3 {
+        font-size: 0.8em;
+    }
+}
+
+/* बहुत छोटी मोबाइल स्क्रीन के लिए */
+@media (max-width: 480px) {
+    .image-grid {
+        /* 2 कार्ड प्रति पंक्ति दिखाएँ */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+}
+/* Existing CSS styles Next buttun... */
+
+.pagination {
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.pagination-btn {
+    background-color: #f4f4f4;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 8px 15px;
+    margin: 0 4px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background-color: #ddd;
+}
+
+.pagination-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.pagination-btn.active-page {
+    background-color: #c0392b; /* Fancy > Decorative का लाल रंग */
+    color: white;
+    border-color: #c0392b;
+    font-weight: bold;
+}
+
+.other {
+    margin: 0 auto; /* केंद्र में संरेखण */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/*
+====================================
+2. हैडिंग स्टाइलिंग (Heading Styling)
+====================================
+*/
+h3 {
+    color: #f6fa05; /* गहरा नीला/ग्रे रंग */
+    border-bottom: 3px solid #3498db; /* नीला अंडरलाइन */
+    padding-bottom: 10px;
+    margin-top: 30px;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+/* सेक्शन के लिए मार्जिन */
+.about-us-section, #privacy-policy, #terms-of-use, #faq {
+    margin-bottom: 40px;
+}
+
+/*
+====================================
+3. पैराग्राफ और टेक्स्ट स्टाइलिंग (Paragraph & Text Styling)
+====================================
+*/
+p {
+    margin-bottom: 15px;
+}
+
+strong {
+    color: #f3311c; /* मुख्य शब्दों के लिए लाल रंग */
+    font-weight: 700;
+}
+
+/*
+====================================
+4. लिस्ट स्टाइलिंग (List Styling - ul, li)
+====================================
+*/
+ul {
+    list-style-type: '👉 '; /* बुलेट को इमोजी से बदलें */
+    padding-left: 20px;
+    margin-left: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+
+ul li strong {
+    color: #f7e603; /* लिस्ट आइटम के मुख्य शब्दों के लिए गहरा रंग */
+}
+
+/*
+====================================
+5. FAQ सेक्शन स्टाइलिंग (FAQ Section Styling)
+====================================
+*/
+.faq-question {
+    font-weight: bold;
+    color: #42a8ec; /* नीले रंग के प्रश्न */
+    margin-top: 20px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    border-left: 3px solid #0af529;
+}
+
+/*
+====================================
+6. उपयोगिता क्लासेस (Utility Classes)
+====================================
+*/
+.Par {
+    font-style: italic;
+    color: #57e74a;
+    margin-top: 20px;
+}
+
+/* General Footer Styles */
+.main-footer {
+    background-color: #070707; /* Dark, professional background */
+    color: #ecf0f1; /* Light text for contrast */
+    padding: 40px 20px 20px; /* Ample vertical padding */
+    font-family: 'Arial', sans-serif;
+    border-top: 3px solid #f59910; /* Subtle blue top border for emphasis */
+}
+
+/* Footer Content Container - Desktop Layout */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto; /* Center the content */
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: space-between; /* Distribute sections evenly */
+    gap: 30px; /* Space between columns */
+}
+
+/* Individual Footer Sections */
+.footer-section {
+    flex: 1; /* Equal width for all sections initially */
+    min-width: 250px; /* Minimum width before wrapping */
+}
+
+.footer-section h3 {
+    color: #cadb34; /* Highlight headings with blue */
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgba(236, 218, 52, 0.5); /* Subtle underline */
+    padding-bottom: 5px;
+}
+
+/* About Section Specifics */
+.footer-section.about p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 0.95em;
+}
+
+.footer-section.about .Email span {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+.footer-section.about .Email i {
+    margin-right: 8px;
+    color: #f05e4e; /* Red color for envelope icon */
+}
+
+.footer-section.about .Phone span {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+.footer-section.about .Phone i {
+    margin-right: 8px;
+    color: #46ec30; /* Red color for envelope icon */
+}
+
+.footer-section.about .Map span {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+.footer-section.about .Map i {
+    margin-right: 8px;
+    color: #dcee39; /* Red color for envelope icon */
+}
+
+/* Quick Links Section */
+.footer-section.links ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section.links a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.95em;
+}
+
+.footer-section.links a:hover {
+    color: #2f69d4; /* blue on hover */
+    text-decoration: underline;
+}
+
+.footer-section.links ul {
+    /* 1. डिफ़ॉल्ट बुलेट पॉइंट हटाएँ */
+    list-style: none;
+    padding-left: 0; /* ब्राउज़र द्वारा जोड़ी गई डिफ़ॉल्ट पैडिंग को हटाएँ */
+}
+
+.footer-section.links li {
+    position: relative;
+    /* स्टार के लिए जगह बनाने के लिए टेक्स्ट को दाईं ओर शिफ्ट करें */
+    padding-left: 1.5em; 
+}
+
+.footer-section.links li::before {
+    /* 2. स्टार यूनिकोड वर्ण जोड़ें */
+    content: "\2605"; /* या "\2606" यदि आप खाली (Outline) स्टार चाहते हैं */
+    color: gold; /* स्टार का रंग, आप इसे किसी भी रंग में बदल सकते हैं */
+    font-size: 1em; /* स्टार का साइज़ */
+    position: absolute;
+    left: 0; /* आइटम की शुरुआत में स्टार को रखें */
+    top: 0; /* स्टार को टेक्स्ट के साथ संरेखित करें */
+}
+
+/* Social Section */
+.footer-section.social .social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-section.social .social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Circle shape */
+    background-image: linear-gradient(135deg, #11a6cb 0%, #25fc86 100%); /* बैंगनी से नीले रंग का ग्रेडिएंट */
+    color: #da231c;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+}
+
+.footer-section.social .social-icons a:hover {
+    color:#050004; /* Blue on hover */
+    transform: translateY(-3px); /* Slight lift effect */
+}
+
+/* 📢 "आप हमें कहाँ ढूँढ सकते हैं:" के लिए स्टाइल */
+.bullhorn {
+    background-color: #007bff; /* नीला बैकग्राउंड */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px; /* गोल कोने */
+    margin-bottom: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* हल्का शैडो */
+    display: flex;
+    align-items: center;
+    font-size: 1.25em; /* फ़ॉन्ट साइज बढ़ाना */
+    font-weight: bold;
+}
+
+.bullhorn span {
+    display: flex;
+    align-items: center;
+}
+
+/* 📣 हॉर्न आइकन के लिए स्टाइल */
+.bullhorn .fa-bullhorn {
+    margin-right: 12px;
+    font-size: 1.5em; /* आइकन को बड़ा करना */
+    color: #080808;
+}
+
+.bullhorn span:hover {
+    cursor: pointer;
+    color: #070707; /* होवर करने पर गहरा नीला टेक्स्ट */
+}
+
+/* 'share' div के लिए कंटेनर स्टाइलिंग */
+.share {
+    /* अधिकतम चौड़ाई निर्धारित करें, यह आपकी वेबसाइट के लेआउट पर निर्भर करता है */
+    max-width: 600px;
+    margin: 20px auto; /* केंद्र में लाने के लिए */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+}
+
+/* स्पैन (span) तत्व को फ्लेक्स कंटेनर बनाएं ताकि सामग्री एक लाइन में रहे */
+.share span {
+    display: flex; /* बच्चों को एक लाइन में व्यवस्थित करने के लिए */
+    align-items: center; /* ऊर्ध्वाधर रूप से केंद्र में संरेखित करें */
+    gap: 10px; /* आइकन, शीर्षक और टेक्स्ट के बीच की दूरी */
+    flex-wrap: wrap; /* यदि जगह कम हो तो अगली लाइन में आ जाएं */
+}
+
+/* आइकन (i.fa.fa-share) की स्टाइलिंग */
+.share .fa-share {
+    color: #007bff; /* आइकन का रंग */
+    font-size: 20px; /* आइकन का आकार */
+    margin-right: 5px; /* आइकन के बाद थोड़ी जगह */
+}
+
+/* शीर्षक (h4) की स्टाइलिंग */
+.share h4 {
+    margin: 0; /* डिफ़ॉल्ट मार्जिन हटा दें */
+    font-size: 18px;
+    color: #f7e81f;
+    font-weight: bold;
+}
+
+/* सोशल मीडिया लिंक वाले टेक्स्ट की स्टाइलिंग */
+.share span:last-child {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+    /* 'Facebook' 'Twitter' आदि को हाइलाइट करने के लिए, आप HTML में <b> या <strong> टैग का उपयोग कर सकते हैं और फिर उन्हें स्टाइल कर सकते हैं */
+}
+
+.share span:hover .fa-share {
+    color: #b31b00; /* होवर करने पर गहरा नीला आइकन */
+}
+
+/* div को स्टाइल करना */
+.currentTime {
+    text-align: center; 
+    max-width: 350px;
+    margin: 20px auto; 
+    padding: 10px;
+    background-color: #0ff01a;
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s;
+}
+
+.currentTime:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(56, 142, 60, 0.4);
+}
+
+.currentTime p {
+    font-size: 1.1em;
+    font-weight: 500;
+    margin: 0; 
+    color: rgb(3, 3, 3); 
+}
+
+/* Bottom Bar */
+.copyright-text {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #34495e; /* Separator line */
+    font-size: 0.85em;
+    color: #bdc3c7; /* Muted color for copyright */
+}
+
+/* 768px (या आपके लेआउट के अनुसार) से कम स्क्रीन के लिए */
+@media screen and (max-width: 768px) {
+    
+    /* Hamburger Button को दिखाएँ */
+    .mobile-menu-toggle {
+        display: block;
+        order: 2; /* इसे लोगो के बाद रखें */
+    }
+
+    /* Header के अंदर के तत्वों को व्यवस्थित करें */
+    header {
+        display: flex;
+        justify-content: space-between; /* लोगो और आइकन को विपरीत सिरों पर रखें */
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    /* Navigation Links को Mobile पर छिपाएँ */
+    #mobile-menu {
+        display: none;
+        position: absolute; /* मेनू को पेज पर फ्लोट करें */
+        top: 60px; /* Header की ऊँचाई के नीचे शुरू करें */
+        left: 0;
+        width: 100%;
+        background-color: #333; /* मेनू का बैकग्राउंड रंग */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        flex-direction: column; /* लिंक को एक के नीचे एक रखें */
+        z-index: 1000;
+    }
+
+    /* जब 'active' क्लास हो, तब मेनू को दिखाएँ */
+    #mobile-menu.active {
+        display: flex;
+    }
+
+    /* Links की स्टाइलिंग */
+    #mobile-menu a {
+        padding: 15px 20px;
+        text-align: left;
+        border-bottom: 1px solid #444;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+.sharemwdia {
+  /* लेआउट और टाइपोग्राफी */
+  display: inline-flex;
+  align-items: center;
+  gap: 10px; /* आइकन और टेक्स्ट के बीच की दूरी */
+  padding: 12px 25px;
+  border: none;
+  border-radius: 50px; /* पूरी तरह गोल बटन */
+  cursor: pointer;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  
+  /* रंग और ग्रेडिएंट */
+  background-image: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); /* बैंगनी से नीले रंग का ग्रेडिएंट */
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* टेक्स्ट पर हल्का शैडो */
+  
+  /* शैडो इफ़ेक्ट */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* गहरा, 3D जैसा शैडो */
+  
+  /* ट्रांज़िशन */
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* स्मूथ, एनिमेटेड ट्रांज़िशन */
+  
+  /* आइकन साइज़ */
+  /* i टैग के लिए कोई विशेष स्टाइल की आवश्यकता नहीं है, क्योंकि gap: 10px दूरी को संभाल लेगा */
+
+  /* एनीमेशन प्रॉपर्टीज */
+    animation: slideIn 5s linear infinite alternate; /* 5 सेकंड में स्लाइड करें, लीनियर गति, अनंत बार, आगे-पीछे */
+    position: relative; /* एनीमेशन के लिए संदर्भ बिंदु */
+  
+}
+
+/* एनीमेशन की-फ्रेम्स */
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%); /* स्क्रीन के बाईं ओर से शुरू करें */
+    }
+    100% {
+        transform: translateX(100%); /* स्क्रीन के दाईं ओर तक स्लाइड करें */
+    }
+}
+
+/* होवर इफ़ेक्ट (प्रीमियम इफ़ेक्ट) */
+.sharemwdia:hover {
+  background-image: linear-gradient(135deg, #7c3aed 0%, #4f96ff 100%); /* ग्रेडिएंट को थोड़ा बदलना */
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); /* शैडो को और बढ़ाना */
+  transform: scale(1.05); /* बटन को थोड़ा बड़ा करना */
+}
+
+/* एक्टिव इफ़ेक्ट */
+.sharemwdia:active {
+  transform: scale(0.98); /* क्लिक करने पर बटन को थोड़ा छोटा करना */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); /* शैडो को कम करना */
+  background-image: linear-gradient(135deg, #5c0ac9 0%, #1e59c2 100%);
+}
+
+/* शेयर मॉडल के लिए CSS */
+
+/* मॉडल पृष्ठभूमि (पृष्ठ के ऊपर एक काली ओवरले) */
+.modal {
+    display: none; /* डिफ़ॉल्ट रूप से छिपा हुआ */
+    position: fixed; /* स्क्रीन पर स्थिर */
+    z-index: 1000; /* सुनिश्चित करता है कि यह अन्य तत्वों के ऊपर रहे */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* यदि सामग्री बहुत बड़ी हो तो स्क्रॉल सक्षम करता है */
+    background-color: rgba(0, 0, 0, 0.7); /* आंशिक रूप से पारदर्शी काला */
+}
+
+/* मॉडल सामग्री (बॉक्स जिसमें शेयर विकल्प हैं) */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* ऊपर/नीचे 15% और केंद्र में */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* मॉडल की चौड़ाई */
+    max-width: 400px; /* अधिकतम चौड़ाई सीमित करें */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    text-align: center;
+}
+
+/* बंद करें बटन */
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1; /* पाठ के साथ संरेखण के लिए */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* शीर्षक */
+.modal-content h3 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* शेयर विकल्प कंटेनर */
+.share-options {
+    display: flex; /* बच्चों को एक पंक्ति में व्यवस्थित करें */
+    flex-direction: column; /* बच्चों को एक कॉलम में व्यवस्थित करें */
+    gap: 10px; /* बटनों के बीच की दूरी */
+}
+
+/* सामान्य शेयर बटन स्टाइल */
+.share-button {
+    display: flex; /* आइकन और टेक्स्ट को संरेखित करने के लिए */
+    align-items: center; /* लंबवत केंद्र */
+    justify-content: center; /* क्षैतिज केंद्र */
+    padding: 10px;
+    color: white;
+    text-decoration: none; /* अंडरलाइन हटाएँ */
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* होवर पर स्मूथ संक्रमण */
+}
+
+/* आइकन स्टाइल (यदि आप Font Awesome का उपयोग कर रहे हैं) */
+.share-button i.fa {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+/* विशिष्ट सोशल मीडिया रंग */
+.share-button.whatsapp {
+    background-color: #25D366;
+}
+
+.share-button.whatsapp:hover {
+    background-color: #128C7E;
+}
+
+.share-button.facebook {
+    background-color: #1877F2;
+}
+
+.share-button.facebook:hover {
+    background-color: #145CBF;
+}
+
+.share-button.twitter {
+    background-color: #1DA1F2;
+}
+
+.share-button.twitter:hover {
+    background-color: #0F84CC;
+}
+
+.share-button.instagram {
+    background-color: #d325ca;
+}
+
+.share-button.instagram:hover {
+    background-color: #8c1278;
+}
+
+.share-button.email {
+    background-color: #BB001B; /* जीमेल/लाल रंग से प्रेरित */
+}
+
+.share-button.email:hover {
+    background-color: #920014;
+}
+
+/* नोट (Note) स्टाइल */
+.share-note {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* स्क्रीन साइज़ के लिए मीडिया क्वेरी */
+@media (max-width: 600px) {
+    .modal-content {
+        margin: 10% auto;
+        width: 90%; /* छोटी स्क्रीन पर अधिक जगह लें */
+    }
+}
+
+
+
+/* मुख्य कंटेनर: दोनों सेक्शन को बाएँ-दाएँ रखने के लिए */
+.main-content {
+    display: flex; /* फ्लेक्सबॉक्स सक्षम करें */
+    gap: 30px; /* सेक्शन के बीच जगह */
+    max-width: 1200px; /* अधिकतम चौड़ाई सीमित करें */
+    margin: 0 auto; /* केंद्र में करें */
+    padding: 20px;
+}
+
+/* सेक्शन की सामान्य स्टाइलिंग */
+.feedback-section,
+.team-section {
+    flex: 1; /* दोनों सेक्शन को बराबर जगह दें */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* नरम छाया (Soft Shadow) */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* फीडबैक सेक्शन की विशिष्ट स्टाइलिंग */
+.feedback-section {
+    border-left: 5px solid #007bff; /* प्राथमिक रंग का किनारा */
+}
+
+/* टीम सेक्शन की विशिष्ट स्टाइलिंग */
+.team-section {
+    border-right: 5px solid #28a745; /* द्वितीयक रंग का किनारा */
+    text-align: center; /* टीम डिटेल्स को केंद्र में करें */
+}
+
+/* शीर्षक स्टाइलिंग */
+.h5 {
+    color: #e3fa12;
+    border-bottom: 2px solid #ffc107; /* आकर्षक अंडरलाइन */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* फ़ॉर्म समूह स्टाइलिंग */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #378edf;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box; /* पैडिंग को चौड़ाई में शामिल करें */
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+textarea {
+    resize: vertical; /* केवल लंबवत रीसाइज़ की अनुमति दें */
+}
+
+/* स्टार रेटिंग स्टाइलिंग */
+.star-rating {
+    font-size: 24px;
+    cursor: pointer;
+    color: #ffc107; /* पीला रंग */
+    user-select: none;
+}
+
+.star-rating i {
+    transition: color 0.2s;
+}
+
+.star-rating .fa-star {
+    color: gold; /* भरी हुई स्टार के लिए */
+}
+
+
+/* सबमिट बटन स्टाइलिंग */
+.submit-button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s, transform 0.1s;
+    display: inline-flex;
+    align-items: center;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+.submit-button i {
+    margin-left: 10px;
+}
+
+/* टीम ग्रिड स्टाइलिंग */
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.team-member {
+    padding: 20px;
+    background-image: linear-gradient(135deg, #883bec 5%, #3c71cc 25%, #59e746 );
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 250px;
+    width: 100%;
+}
+
+.team-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* गोलाकार छवि */
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #1c038b; /* नीले रंग का किनारा */
+}
+
+.team-member h4 {
+    margin: 10px 0 5px 0;
+    color: #0a0a0a;
+}
+
+.team-member .role {
+    color: #dbe9e9;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.team-social a {
+    color: #080808;
+    font-size: 30px;
+    margin: 0 8px;
+    transition: color 0.3s;
+}
+
+.team-social a:hover {
+    color: #ff3c00;
+}
+
+/* मोबाइल उपकरणों के लिए मीडिया क्वेरी */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column; /* छोटे स्क्रीन पर एक के ऊपर एक */
+        gap: 20px;
+    }
+
+    .feedback-section,
+    .team-section {
+        flex: auto; /* पूर्ण चौड़ाई लें */
+    }
+
+    .team-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+
+/* --- Light/Dark Mode Toggle Button Style --- */
+.mode-toggle-button {
+    background: none;
+    border: none;
+    color: white; /* Default color for the button in the header */
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 10px;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.mode-toggle-button:hover {
+    color: #ffd700; /* Gold color on hover */
+}
+
+/* --- Dark Mode Styles --- */
+/* The .dark-mode class is added to the <body> tag by JavaScript */
+.dark-mode {
+    background-color: #121212; /* Very dark gray background */
+    color: #e0e0e0; /* Light text color */
+}
+
+/* Header in Dark Mode */
+.dark-mode header {
+    background-color: #1f1f1f; /* Darker header */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode header .logo {
+    color: #f7f7f7;
+}
+
+/* Navigation links in Dark Mode */
+.dark-mode nav a {
+    color: #e0e0e0;
+}
+
+.dark-mode nav a:hover {
+    background-color: #333333;
+    color: #00bcd4; /* A light blue for emphasis */
+}
+
+/* Main content/sections in Dark Mode */
+.dark-mode .hero-section,
+.dark-mode .image-gallery,
+.dark-mode .about-us-section,
+.dark-mode #privacy-policy,
+.dark-mode #terms-of-use,
+.dark-mode #faq,
+.dark-mode .feedback-section,
+.dark-mode .team-section {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5 {
+    color: #ffffff; /* White headings */
+}
+
+/* Search input and button in Dark Mode */
+.dark-mode .search-container input[type="text"] {
+    background-color: #333;
+    color: #f7f7f7;
+    border: 1px solid #444;
+}
+
+.dark-mode .search-container button {
+    background-color: #00bcd4; /* Teal primary button */
+    color: white;
+}
+.dark-mode .search-container button:hover {
+    background-color: #0097a7;
+}
+
+/* Image Cards in Dark Mode */
+.dark-mode .image-card {
+    background-color: #2c2c2c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode .image-card button {
+    background-color: #4a4a4a; /* Darker secondary button */
+    color: #f7f7f7;
+}
+.dark-mode .image-card button:hover {
+    background-color: #616161;
+}
+
+.dark-mode .png-thumbnail {
+    background-color: #f7f7f7; /* Darker secondary button */
+    color: #f7f7f7;
+}
+
+/* Pagination buttons in Dark Mode */
+.dark-mode .pagination .page-button {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+.dark-mode .pagination .page-button.active {
+    background-color: #00bcd4;
+    color: white;
+}
+
+/* Footer in Dark Mode */
+.dark-mode .main-footer {
+    background-color: #1f1f1f;
+    color: #b0b0b0;
+    border-top: 1px solid #333;
+}
+
+.dark-mode .footer-section h3 {
+    color: #ffffff;
+}
+
+.dark-mode .footer-section a {
+    color: #b0b0b0;
+}
+.dark-mode .footer-section a:hover {
+    color: #00bcd4;
+}
+
+.dark-mode .social-icons a {
+    color: #e0e0e0;
+}
+.dark-mode .social-icons a:hover {
+    color: #00bcd4;
+}
+
+/* Feedback Form in Dark Mode */
+.dark-mode .form-group label {
+    color: #e0e0e0;
+}
+
+.dark-mode .form-group input,
+.dark-mode .form-group textarea {
+    background-color: #333;
+    color: #f7f7f7;
+    border: 1px solid #444;
+}
+
+.dark-mode .star-rating .fa-star {
+    color: #ffd700; /* Gold/Yellow stars */
+}
+.dark-mode .star-rating .fa-star-o {
+    color: #444; /* Dark outline stars */
+}
+
+.dark-mode .submit-button {
+    background-color: #00bcd4;
+    color: white;
+}
